@@ -1,12 +1,12 @@
 import * as React from "react";
 
 // import { shareChat } from "@/app/actions";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { PromptForm } from "@/components/prompt-form";
 import { ButtonScrollToBottom } from "@/components/button-scroll-to-bottom";
-import { IconShare } from "@/components/ui/icons";
+// import { IconShare } from "@/components/ui/icons";
 import { FooterText } from "@/components/footer";
-import { ChatShareDialog } from "@/components/chat-share-dialog";
+// import { ChatShareDialog } from "@/components/chat-share-dialog";
 // import { nanoid } from "nanoid";
 import { USERS } from "@/lib/types";
 import { useChatContext } from "@/context/Chat.context";
@@ -28,7 +28,7 @@ export function ChatPanel({
   isAtBottom,
   scrollToBottom,
 }: ChatPanelProps) {
-  const [shareDialogOpen, setShareDialogOpen] = React.useState(false);
+  // const [shareDialogOpen, setShareDialogOpen] = React.useState(false);
 
   const exampleMessages = [
     {
@@ -93,14 +93,14 @@ export function ChatPanel({
             <div className="flex space-x-2">
               {id && title ? (
                 <>
-                  <Button
+                  {/* <Button
                     variant="outline"
                     onClick={() => setShareDialogOpen(true)}
                   >
                     <IconShare className="mr-2" />
                     Share
-                  </Button>
-                  <ChatShareDialog
+                  </Button> */}
+                  {/* <ChatShareDialog
                     open={shareDialogOpen}
                     onOpenChange={setShareDialogOpen}
                     onCopy={() => setShareDialogOpen(false)}
@@ -110,7 +110,7 @@ export function ChatPanel({
                       title,
                       messages: messages,
                     }}
-                  />
+                  /> */}
                 </>
               ) : null}
             </div>

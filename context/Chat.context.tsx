@@ -13,25 +13,7 @@ import React, {
   useCallback,
   useEffect,
 } from "react";
-import { TasksToComplete, TaskStatus } from "@/lib/types"; // Import types
-
-// Sample data
-const DefaultTasksToComplete: TasksToComplete = {
-  intent: "Buy groceries",
-  goal: "Complete the grocery list",
-  tasks: [
-    {
-      task_id: "1",
-      description: "Buy milk",
-      status: TaskStatus.PENDING,
-    },
-    {
-      task_id: "2",
-      description: "Buy eggs",
-      status: TaskStatus.IN_PROGRESS,
-    },
-  ],
-};
+import { TasksToComplete } from "@/lib/types"; // Import types
 
 interface ChatContextType {
   messages: Message[];

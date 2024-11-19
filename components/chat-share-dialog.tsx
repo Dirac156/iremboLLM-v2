@@ -37,7 +37,7 @@ export function ChatShareDialog() {
   //   );
 
   return (
-    <Dialog {...props}>
+    <Dialog>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Share link to chat</DialogTitle>

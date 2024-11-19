@@ -48,7 +48,7 @@ const Sidebar = ({ tasksToComplete }: { tasksToComplete: Task[] }) => {
       </button>
       {isExpanded && (
         <div className="task-list">
-          <TaskListContainer tasks={tasksToComplete} />
+          <TaskListContainer tasks={tasksToComplete} intent={""} goal={""} />
           {/* {tasksToComplete.map((taskGroup) => (
             <div key={taskGroup.intent}>
               <h3>{taskGroup.intent}</h3>
