@@ -4,7 +4,6 @@
 import { useLanguageModelApi } from "@/hooks/use-language-model-api";
 import { Message, USERS } from "@/lib/types";
 import { nanoid } from "@/lib/utils";
-import { useUser } from "@clerk/nextjs";
 import React, {
   createContext,
   useContext,
@@ -30,7 +29,7 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 export const ChatContextProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const { user } = useUser();
+  const user = { id: nanoid() };
   const [messages, setMessages] = useState<Message[]>([]);
   const [tasksToComplete, setTasksToComplete] = useState<TasksToComplete[]>([]);
 
