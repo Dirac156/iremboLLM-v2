@@ -2,7 +2,7 @@
 
 import { IconOpenAI, IconUser } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
-import { spinner } from "./spinner";
+// import { spinner } from "./spinner";
 // import { CodeBlock } from "@/components/ui/codeblock";
 import { MemoizedReactMarkdown } from "./markdown";
 import remarkGfm from "remark-gfm";
@@ -13,7 +13,7 @@ import remarkMath from "remark-math";
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
-    <div className="group relative flex items-start md:-ml-12">
+    <div className="group relative flex items-start md:-ml-12 mt-5">
       <div className="flex size-[25px] shrink-0 select-none items-center justify-center rounded-md border bg-background shadow-sm">
         <IconUser />
       </div>
@@ -36,10 +36,15 @@ export function BotMessage({
   console.log(text);
 
   return (
-    <div className={cn("group relative flex items-start md:-ml-12", className)}>
+    <div
+      className={cn(
+        "group relative flex items-start md:-ml-12 mt-5",
+        className
+      )}
+    >
       <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm">
         {/* TODO: remove logo */}
-        {/* <IconOpenAI /> */}
+        <IconOpenAI />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
         <MemoizedReactMarkdown
@@ -130,14 +135,55 @@ export function SystemMessage({ children }: { children: React.ReactNode }) {
   );
 }
 
+const LoadingSkeleton: React.FC = () => {
+  return (
+    <div role="status" className="space-y-2.5 animate-pulse max-w-lg">
+      <div className="flex items-center w-full">
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+      </div>
+      <div className="flex items-center w-full max-w-[480px]">
+        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+      </div>
+      <div className="flex items-center w-full max-w-[400px]">
+        <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+      </div>
+      <div className="flex items-center w-full max-w-[480px]">
+        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+      </div>
+      <div className="flex items-center w-full max-w-[440px]">
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-32"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
+        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-full"></div>
+      </div>
+      <div className="flex items-center w-full max-w-[360px]">
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+        <div className="h-2.5 ms-2 bg-gray-200 rounded-full dark:bg-gray-700 w-80"></div>
+        <div className="h-2.5 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+      </div>
+      <span className="sr-only">Loading...</span>
+    </div>
+  );
+};
+
+// export default LoadingSkeleton;
+
 export function SpinnerMessage() {
   return (
     <div className="group relative flex items-start md:-ml-12">
       <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm">
         <IconOpenAI />
       </div>
-      <div className="ml-4 h-[24px] flex flex-row items-center flex-1 space-y-2 overflow-hidden px-1">
-        {spinner}
+      <div className="ml-4 h-[40px] flex flex-row items-center flex-1 space-y-2 overflow-hidden px-1">
+        {/* {spinner} */}
+        <LoadingSkeleton />
       </div>
     </div>
   );

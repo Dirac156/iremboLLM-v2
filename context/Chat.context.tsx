@@ -13,6 +13,7 @@ import React, {
   useEffect,
 } from "react";
 import { TasksToComplete } from "@/lib/types"; // Import types
+import { useToast } from "@/hooks/use-toast";
 
 interface ChatContextType {
   messages: Message[];
@@ -30,10 +31,23 @@ export const ChatContextProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const user = { id: nanoid() };
+  const { toast } = useToast();
   const [messages, setMessages] = useState<Message[]>([]);
   const [tasksToComplete, setTasksToComplete] = useState<TasksToComplete[]>([]);
 
-  const { mutate, isLoading, isSuccess, data } = useLanguageModelApi();
+  const { mutate, isLoading, isSuccess, data, error, isError } =
+    useLanguageModelApi();
+
+  useEffect(() => {
+    if (isError) {
+      toast({
+        title: "Error occurred",
+        description: "Something went wrong, please try again later",
+        variant: "destructive",
+      });
+      console.error(error);
+    }
+  }, [isError, toast, error]);
 
   // Add a new message to the chat
   const addMessage = useCallback((user: USERS, text: string) => {

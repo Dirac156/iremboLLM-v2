@@ -16,7 +16,7 @@ const TaskListContainer: React.FC<TaskListContainerProps> = ({
   goal,
 }) => {
   return (
-    <div className="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
+    <div className="max-w-lg my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
       <TaskListHeader intent={intent} />
       <p className="text-slate-500">{goal}</p>
       <div id="tasks" className="my-5">

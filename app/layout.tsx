@@ -5,6 +5,7 @@ import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ReactQueryProvider } from "@/context/ReactQuery.context";
 import { ChatContextProvider } from "@/context/Chat.context";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default function RootLayout({
           <ReactQueryProvider>
             <ChatContextProvider>
               <TooltipProvider>{children}</TooltipProvider>
+              <Toaster />
             </ChatContextProvider>
           </ReactQueryProvider>
         </body>
