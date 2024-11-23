@@ -32,28 +32,28 @@ export function ChatPanel({
 
   const exampleMessages = [
     {
-      heading: "Rwandan Nationality Acquisition",
+      heading: "Certificate of Being Single",
       subheading:
-        "How can someone apply for Rwandan nationality by acquisition through IremboGov?",
-      message: `How can someone apply for Rwandan nationality by acquisition through IremboGov?`,
+        "How can someone apply for a Certificate of Being Single through IremboGov?",
+      message: `How can someone apply for a Certificate of Being Single through IremboGov?`,
     },
     {
-      heading: "Cost of Application",
+      heading: "Motor Vehicle Inspection Process",
       subheading:
-        "What is the cost of applying for Rwandan nationality by acquisition on the ground of being an immigrant?",
-      message: `What is the cost of applying for Rwandan nationality by acquisition on the ground of being an immigrant?`,
+        "What are the steps to apply for a motor vehicle inspection appointment through IremboGov?",
+      message: `What are the steps to apply for a motor vehicle inspection appointment through IremboGov?`,
     },
     {
-      heading: "Steps to Apply",
+      heading: "Foreign Document Authentication",
       subheading:
-        "What are the steps to apply for Rwandan nationality by acquisition on the ground of being an immigrant?",
-      message: `What are the steps to apply for Rwandan nationality by acquisition on the ground of being an immigrant?`,
+        "How can someone authenticate or legalize a foreign document through IremboGov?",
+      message: `How can someone authenticate or legalize a foreign document through IremboGov?`,
     },
     {
-      heading: "After Submission",
+      heading: "Service Costs",
       subheading:
-        "What happens after an applicant submits their application for Rwandan nationality by acquisition?",
-      message: `What happens after an applicant submits their application for Rwandan nationality by acquisition?`,
+        "What are the costs of applying for these services through IremboGov?",
+      message: `What are the costs of applying for these services through IremboGov?`,
     },
   ];
 
