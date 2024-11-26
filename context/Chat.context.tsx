@@ -30,7 +30,6 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 export const ChatContextProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const user = { id: nanoid() };
   const { toast } = useToast();
   const [messages, setMessages] = useState<Message[]>([]);
   const [tasksToComplete, setTasksToComplete] = useState<TasksToComplete[]>([]);
@@ -67,7 +66,7 @@ export const ChatContextProvider: React.FC<{ children: ReactNode }> = ({
         mutate({
           query: message.content,
           agent_mode: "assistant",
-          thread_id: user?.id as string,
+          thread_id: "123456" as string,
         });
       }
     }
