@@ -14,6 +14,7 @@ import React, {
 } from "react";
 import { TasksToComplete } from "@/lib/types"; // Import types
 import { useToast } from "@/hooks/use-toast";
+import { useUser } from "@clerk/nextjs";
 
 interface ChatContextType {
   messages: Message[];
@@ -30,6 +31,7 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 export const ChatContextProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
+  const { user } = useUser();
   const { toast } = useToast();
   const [messages, setMessages] = useState<Message[]>([]);
   const [tasksToComplete, setTasksToComplete] = useState<TasksToComplete[]>([]);
@@ -66,7 +68,7 @@ export const ChatContextProvider: React.FC<{ children: ReactNode }> = ({
         mutate({
           query: message.content,
           agent_mode: "assistant",
-          thread_id: "123456" as string,
+          thread_id: user?.id as string,
         });
       }
     }
